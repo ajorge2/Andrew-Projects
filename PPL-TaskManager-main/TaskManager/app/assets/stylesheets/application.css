@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   margin: 0;
+   padding: 0;
+ }
+
+ .container{
+   padding: 0 100px;
+ }
+
+ .heading{
+   display: flex;
+   justify-content: space-between;
+   margin: 25px 0 50px 0;
+ }
+
+ .search_field{
+   margin-right: 100px;
+ }
+
+ .new_chore{
+   margin-bottom: 50px;
+   background-color:antiquewhite;
+   padding: 20px;
+   border-radius: 10px;
+ }
+
+ input[type="text"]{
+   height: 30px;
+   width: 200px;
+   border-radius: 5px;
+   border-color: black;
+   padding-left: 5px;
+ }
+
+ select{
+  height: 35px;
+  width: 210px;
+  border-radius: 5px;
+  border-color: black;
+  border: 2px solid;
+  padding-left: 5px;
+ }
+
+ .input{
+   margin-bottom: 15px;
+ }
+
+ span{
+   display: inline-block;
+   width: 150px;
+ }
+
+ input[type="submit"]{
+   padding: 7px;
+   background-color: #ACE1AF;
+   border-color: #6b976d;
+   border-radius: 5px;
+ }
+
+ .display_chores{
+   background-color: antiquewhite;
+   width: 100%;
+   margin: 0;
+   padding: 20px;
+   border-radius: 10px;
+   margin-bottom: 45px;
+ }
+
+ th{
+   text-align: left;
+   padding-bottom: 10px;
+   /* border-bottom: 1px solid rgb(108, 108, 108); */
+ }
+
+ td{
+   padding-bottom: 20px;
+   vertical-align: bottom;
+ }
+
+ tr:hover{
+   background-color: rgb(255, 226, 189);
+ }
+
+ .view_container{
+   padding: 50px 100px;
+ }
+
+ h2{
+   margin-bottom: 15px;
+ }
+
+ .completed_heading{
+   display: flex;
+   justify-content: space-between;
+ }

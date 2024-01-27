@@ -1,0 +1,107 @@
+<div class="container">
+
+    <div class="heading">
+        <h1>Chore Manager</h1>
+        <div class="search_field">
+            <%= form_tag do%>
+                <p><%= text_field_tag(:search_string) %> <%= submit_tag "Search"%> </p>
+            <% end %>
+        </div>
+    </div>
+    
+    <div class="new_chore">
+        <%= form_tag do%>
+            <p class="input"> <span>Chore Name: </span><%= text_field_tag(:name) %> </p>
+            <p class="input"> <span>Datetime: </span><%= text_field_tag(:datetime)%> </p>
+            <p class="input"> <span>Description: </span><%= text_field_tag(:description)%> </p>
+            <p class="input"> <span>Location: </span><%= text_field_tag(:location)%> </p>
+            <p class="input"> <span>Collaborators: </span><%= text_field_tag(:collaborators)%> </p>
+            <p class="input"> <span>Priority: </span><%= select_tag(:priority, options_for_select([["Regular","Regular"],["Urgent","Urgent"],["Not Important", "Not Important"]]))%> </p>
+            <p> <%= submit_tag "New Chore"%> </p>
+        <% end %>
+    </div>
+
+    
+    <h2>Pending Chores</h2>
+    <table class="display_chores">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Datetime </th>
+                <th> Description </th>
+                <th> Location </th>
+                <th> Collaborators </th>
+                <th> Priority </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @chores.each do |chore|%>
+                <tr>
+                    <td> <%= chore.name %> </td>
+                    <td> <%= chore.datetime %> </td>
+                    <td> <%= chore.description %> </td>
+                    <td> <%= chore.location %> </td>
+                    <td> <%= chore.collaborators %> </td>
+                    <td> <%= chore.priority %> </td>
+                    <td class="table_button">                
+                        <%= form_tag do%>
+                        <%= hidden_field_tag(:id, chore.id) %>
+                        <p> <%= submit_tag "View"%> </p>
+                        <% end %> 
+                    </td>
+                    <td class="table_button">                
+                        <%= form_tag do%>
+                        <%= hidden_field_tag(:id, chore.id) %>
+                        <p> <%= submit_tag "Delete"%> </p>
+                        <% end %> 
+                    </td>
+                    <td class="table_button">                
+                        <%= form_tag do%>
+                        <%= hidden_field_tag(:id, chore.id) %>
+                        <p> <%= submit_tag "Complete"%> </p>
+                        <% end %> 
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="completed_heading">
+        <h2>Completed Chores</h2>
+        <td class="table_button">                
+            <%= form_tag do%>
+            <p> <%= submit_tag "Clear Completed Chores"%> </p>
+            <% end %> 
+        </td>
+    </div>
+    <table class="display_chores">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Datetime </th>
+                <th> Description </th>
+                <th> Location </th>
+                <th> Collaborators </th>
+                <th> Priority </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @finishedChores.each do |chore|%>
+                <tr>
+                    <td> <%= chore.name %> </td>
+                    <td> <%= chore.datetime %> </td>
+                    <td> <%= chore.description %> </td>
+                    <td> <%= chore.location %> </td>
+                    <td> <%= chore.collaborators %> </td>
+                    <td> <%= chore.priority %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    
+</div>
+
+
+

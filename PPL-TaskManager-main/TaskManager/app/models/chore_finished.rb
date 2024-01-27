@@ -1,0 +1,2 @@
+class ChoreFinished < ApplicationRecord
+end

@@ -1,0 +1,29 @@
+class TaskController < ApplicationController
+  def index
+    @chores = Chore.all
+    # @chores = @chores.sort_by {|chore| [chore.time]}
+  end
+
+  def handlePost
+    if params[:commit] == "New Chore"
+      addChore
+    end
+  end
+
+  def addChore
+    name = params[:name]
+    time = params[:time]
+    description = params[:description]
+    location = params[:location]
+    map = {"name" => name, "time" => time, "description" => description, "location" => location}
+    newRow = Chore.new(map)
+    respond_to do |format|
+      if newRow.save
+        puts "Success!"
+        format.html{redirect_to "/"}
+      else
+        format.html{redirect_to "/"} #Can create error page
+      end
+    end
+  end
+end

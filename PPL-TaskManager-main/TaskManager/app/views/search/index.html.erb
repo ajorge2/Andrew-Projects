@@ -1,0 +1,49 @@
+<div class="container">
+    
+    <div class="heading">
+        <h1>Chore Manager</h1>
+        <p>Search Result</p>
+    </div>
+
+    <table  class="display_chores">
+        <thead>
+            <tr>
+                <th> Chore Name </th>
+                <th> Datetime </th>
+                <th> Description </th>
+                <th> Location </th>
+                <th> Collaborators </th>
+                <th> Priority </th>
+            </tr>
+        </thead>
+
+        
+
+        <tbody>
+            <% @foundChores.each do |chore|%>
+                <tr>
+                    <td> <%= chore.name %> </td>
+                    <td> <%= chore.datetime %> </td>
+                    <td> <%= chore.description %> </td>
+                    <td> <%= chore.location %> </td>
+                    <td> <%= chore.collaborators %> </td>
+                    <td> <%= chore.priority %> </td>
+                    <td> <%=                
+                            if chore.priority == "Urgent"
+                                image_name = "high_priority.png"
+                            end
+                            if chore.priority == "Regular"
+                                image_name = "medium_priority.png"
+                            end
+                            if chore.priority == "Not Important"
+                                image_name = "low_priority.png"
+                            end
+                            image_tag(image_name, size:"40")
+                        %> 
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
