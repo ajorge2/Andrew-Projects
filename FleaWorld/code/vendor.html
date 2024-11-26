@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+  <head>
+    
+    <!-- Required META Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Navbar CSS link-->
+    <link href="stylesheets/navbar.css" rel="stylesheet">
+
+    <!-- Page CSS line-->
+    <link href="stylesheets/shopper.css" rel="stylesheet">
+       
+    <!-- Favicon CSS -->
+    <link rel="icon" type="image/x-icon" href="images/favicon1.ico"> 
+
+    <title>Flea World!</title>
+
+  </head>
+
+
+
+  <body style="background-color: white;">
+
+    <!-- Navbar -->
+    <header style="background-color: white;">
+
+
+      <nav class="navbar navbar-expand-lg text-lg-start bg-body-tertiary" style="--bs-navbar-padding-y: 0">
+        <div class="container-fluid bg-white p-2 text-white" style="--bs-bg-opacity: .75;">
+
+          <a class="navbar-brand" href="index1.html" style="padding-right: .5rem;">
+            <img src="images/favicon1.ico" alt="Logo"  class="d-inline-block align-text-top" width="50%"; height="50%">
+           
+          </a>
+          
+          
+          <nav class="navbar bg-white">
+            <div class="container-fluid">
+
+                <ul class="navbar-nav">
+                    <a class="nav-link active"  href="index1.html"><u>Return Home</u></a>
+                  </li> 
+                    <li class="nav-item">
+                      <a class="nav-link active"  href="favoritespage.html"><u>Favorites</u></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link"  href="cart.html"><u>Cart</u></a>
+                    </li>
+                    <li class="nav-item">
+
+                      <a class="nav-link"  href="vendor.html"><u>Vendor</u></a>
+
+                      
+
+                    </li>
+                </ul>
+                
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <a href="signin.html"><img src="images/profilepic2.png" class="image1" alt="profilepic" ></a>
+            </div>
+            
+          </nav>
+
+        </div>
+      </nav>
+
+    
+    </header>
+
+
+  <!------Start of Body-------->
+
+  <div class="card-group">
+
+
+    <div class="card">
+
+      <div class="card-body">
+        <div class="text-center">
+          <h3 class="card-title">VENDOR PROFILE</h3>
+        </div>
+
+        <div class="text-center">
+          <img src="images/profilepic2.png" width="65%" height="65%" alt="vendorPhoto">
+        </div>
+
+      </div>
+      
+      
+      <div class="card">
+        <div class="card-body">
+          <form id="vendorDescriptionForm">
+            <div class="mb-3">
+              <label for="vendorDescription" class="form-label">Vendor Description</label>
+              <textarea class="form-control" id="vendorDescription" rows="3"></textarea>
+            </div>
+            <button type="update" class="btn btn-primary" onclick="editVendor()">Update</button>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center">
+          <h3 class="card-title">Contact Information</h3>
+        </div>
+
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+
+            <div class="col-md-8">
+              <div class="card-body">
+
+                <!-- Form for user input -->
+
+                <form id="contactForm">
+                  <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber"></input>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email"></input>
+                  </div>
+                  <div class="mb-3">
+                    <label for="homeFleaMarket" class="form-label">Home Flea Market</label>
+                    <input type="text" class="form-control" id="homeFleaMarket">
+                  </div>
+                  <div>
+                    <button type="update" class="btn btn-primary" onclick="editVendor()">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="text-center">
+        <h3 class="card-title">Available Products</h3>
+      </div>
+
+      <div id="productCardsContainer">
+
+        <!-- Add product cards -->
+
+      </div>
+
+      <button id="addProductBtn" class="btn btn-primary">Add Product</button>
+
+    </div>
+  </div>
+
+  <!-- Modal for Market Add-->
+  <div class="modal fade" id="marketAddModal" tabindex="-1" aria-labelledby="marketAddLabelModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="marketAddLabelModal">Success!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This product has been added to your Vendor Market!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Market Remove-->
+  <div class="modal fade" id="marketRemoveModal" tabindex="-1" aria-labelledby="marketRemoveLabelModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="marketRemoveLabelModal">Success!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This product has been removed from your Vendor Market!
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal for Vendor Profile Edit-->
+  <div class="modal fade" id="vendorModal" tabindex="-1" aria-labelledby="vendorLabelModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="vendorLabelModal">Success!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your information has been updated!
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  
+
+
+  </div>
+
+  <script src="scripts/vendorprofile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+        
+  </body>
+  
+  </html>
+      
+            
