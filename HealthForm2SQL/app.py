@@ -14,7 +14,7 @@ from io import StringIO
 from flask import Response
 
 # Your API key
-api_key = "AIzaSyDzzPQFMV1agHwnABcSyaYJtqU4dvrMf0U"
+api_key = "XXXXX"
 
 # Initialize Flask app
 app = Flask(__name__)
