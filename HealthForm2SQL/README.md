@@ -100,8 +100,3 @@ Ensure the following are installed:
 - Support for additional file formats (e.g., TIFF).
 - Integration of advanced analytics and reporting tools.
 - Add detection for mis aligned scans of forms
-
-## Contact
-For questions or suggestions, reach out at:
-- **Email:** bsecor34@gmail.com
-- **GitHub:** https://github.com/BenSecor
